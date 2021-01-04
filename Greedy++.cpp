@@ -16,9 +16,6 @@ using namespace std;
 FILE* fp;
 FILE* fout;
 
-string node_selection_str;
-string threshold;
-
 struct edge
 {
     int v, next;
@@ -52,21 +49,19 @@ void GenerateThreshold()
     for (int i = 0; i < n; i++){
         for (int j = 0; j < SNAP; j++){
             float dt = (float)rand()/RAND_MAX;
-
-            if (string("linear").compare(threshold) == 0) {
-              delta[i][j] = dt;
-            } else if (string("concave").compare(threshold) == 0) {
-              delta[i][j] = dt*dt;
-            } else if (string("convex").compare(threshold) == 0) {
-              delta[i][j] = sqrt(dt);
-            } else if (string("majority").compare(threshold) == 0) {
-              delta[i][j] = 0.5;
-            }
+            /*Linear Threshold*/
+            delta[i][j] = dt;
+            /*Concave Threshold*/
+            //delta[i][j] = dt*dt;
+            /*Convex Threshold*/
+            //delta[i][j] = sqrt(dt);
+            /*Majority Vote*/
+            //delta[i][j] = 0.5;
         }
     }
 }
 
-int _Simulate(int snapno,int topk)
+int Simulate(int snapno,int topk)
 {
     queue <int> Q;
     int x,y,i,
@@ -97,19 +92,6 @@ int _Simulate(int snapno,int topk)
     return tot;
 }
 
-int Simulate(int snapno,int topk)
-{
-    if (string("Simulate").compare(node_selection_str) == 0) {
-      return _Simulate(snapno, topk);
-    } else if (string("Random").compare(node_selection_str) == 0) {
-      return (int) rand() % EDGE;
-    } else if (string("Degree").compare(node_selection_str) == 0) {
-      return deg[seed[topk-1]];
-    }
-
-    throw invalid_argument("No supported selection algorithm");
-}
-
 int main(int argc, char* argv[])
 {
     int x,y,maxj,
@@ -127,9 +109,6 @@ int main(int argc, char* argv[])
     if (argc >= 5 && argv[4][0] == 'D'){
         DIR = 1;
     }
-
-    node_selection_str = argv[5];
-    threshold = argv[6];
 
     fscanf(fp, "%d %d", &n, &m);
     for (int i = 0; i < m; i++){
@@ -162,7 +141,6 @@ int main(int argc, char* argv[])
 
     for (int i = 1; i <= TOPK; i++){
         memset(cur,0,sizeof(cur));
-        cout << "K: " << i << endl;
         while (1){
             maxj = PQ.top();
             PQ.pop();

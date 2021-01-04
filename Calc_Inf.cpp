@@ -16,8 +16,6 @@ using namespace std;
 FILE* fp;
 FILE* fs;
 
-string threshold;
-
 struct edge
 {
     int v, next;
@@ -53,15 +51,14 @@ int Simulate(int topk)
         for (i = firstedge[x]; i != 0; i = E[i].next){
             y = E[i].v;
             float dt = (float)rand()/RAND_MAX;
-            if (string("linear").compare(threshold) == 0) {
-              prob = dt;
-            } else if (string("concave").compare(threshold) == 0) {
-              prob = dt*dt;
-            } else if (string("convex").compare(threshold) == 0) {
-              prob = sqrt(dt);
-            } else if (string("majority").compare(threshold) == 0) {
-              prob = 0.5;
-            }
+            /*Linear Threshold*/
+            prob = dt;
+            /*Concave Threshold*/
+            //prob = dt*dt;
+            /*Convex Threshold*/
+            //prob = sqrt(dt);
+            /*Majority Vote*/
+            //prob = 0.5;
             if (prob < (float)1/degin[y] && !visit[y]){
                 Q.push(y);
                 visit[y] = 1;
@@ -89,8 +86,6 @@ int main(int argc, char* argv[])
     if (argc >= 5 && argv[4][0] == 'D'){
         DIR = 1;
     }
-
-    threshold = argv[5];
 
     time_t start,end;
     start = clock();
