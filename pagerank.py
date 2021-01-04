@@ -19,7 +19,10 @@ def random(G):
 
 
 def degree(G):
-    degree_sort = sorted(G.degree, key=lambda x: x[1], reverse=True)
+    if sys.argv[4] == 'D':
+        degree_sort = sorted(G.out_degree, key=lambda x: x[1], reverse=True)
+    else:
+        degree_sort = sorted(G.degree, key=lambda x: x[1], reverse=True)
     for key, value in degree_sort[:(int(sys.argv[2]))]:
          print(key, value)
 
