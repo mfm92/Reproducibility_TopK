@@ -27,6 +27,7 @@ else:
     range_ = [fixed_seed_setsize]
 
 base = os.path.basename(data_path)
+df = pd.DataFrame()
 
 for i in range(iterations):
     if fixed_seed_setsize == None:
@@ -90,6 +91,6 @@ for i in range(iterations):
         print(f"Done in {int(seconds // 60)} minutes {seconds % 60:.2f} seconds")
 
     print("Creating DataFrame...", end="")
-    df.append(pd.DataFrame(influence_data, columns=["Size", "Influence", "NodeRuntime", "InfRuntime"]))
+    df = df.append(pd.DataFrame(influence_data, columns=["Size", "Influence", "NodeRuntime", "InfRuntime"]))
     df.to_csv(output_path + "/Influence.csv", index=False)
     print(" Done")
