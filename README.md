@@ -18,3 +18,5 @@ Mit folgendem Skript wird dann der konkrete Influence berechnet (Bedeutung der A
 `./infl_all_settings.sh #1 #2 #3 #4`
 
 Eventuell muss man vorher `chmod +x <fileName>.sh` laufen lassen, damit das Shell Skript als ausführbar registriert wird.
+
+Slides: https://de.overleaf.com/3845151781fmpmzjnmdhkg
