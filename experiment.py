@@ -75,7 +75,7 @@ for i in range(iterations):
         command = f"g++ {executable}.cpp -o {executable}"
         os.system(command)
         st = os.stat(executable)
-        os.chmod('{executable}', st.st_mode | stat.S_IEXEC)
+        os.chmod(f'{executable}', st.st_mode | stat.S_IEXEC)
 
     influence_data = []
     for size in range_:
