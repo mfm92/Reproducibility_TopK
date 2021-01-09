@@ -44,7 +44,7 @@ for i in range(iterations):
             command = f"g++ {executable}.cpp -o {executable}"
             os.system(command)
             st = os.stat(executable)
-            os.chmod('{executable}', st.st_mode | stat.S_IEXEC)
+            os.chmod(f'{executable}', st.st_mode | stat.S_IEXEC)
     else:
         executable = f"python3 pagerank.py"
 
@@ -70,7 +70,7 @@ for i in range(iterations):
     seconds = perf_counter() - total_start
     print("Experiment ran successfully!\nCalculating influence data from output")
     print(f"Total time: {int(seconds // 60)} minutes {seconds % 60:.2f} seconds", end="\n\n")
-    executable = f"./Calc_Inf"
+    executable = f"./Calc_Inf_LT_{threshold_type}"
     if not os.path.isfile(executable):
         command = f"g++ {executable}.cpp -o {executable}"
         os.system(command)

@@ -28,8 +28,8 @@ int firstedge[NODE] = {0},
     seed[MAXK] = {0},
     nb[NODE] = {0};
 bool visit[NODE] = {0};
-int n, m, 
-    TOPK = 20, 
+int n, m,
+    TOPK = 20,
     DIR = 0;
 float delta[NODE] = {0};
 
@@ -46,7 +46,7 @@ int Simulate(int topk)
     int x,y,i,
         tot = 0;
     float thrs;
-    
+
     memset(visit,0,sizeof(visit));
     memset(nb,0,sizeof(nb));
     for (i = 0; i < topk; i++){
@@ -80,22 +80,22 @@ int main(int argc, char* argv[])
     fp = fopen(argv[1], "r");
     fs = fopen(argv[2], "r");
     srand(time(NULL));
-    
+
     if (argc >= 4){
-        TOPK = atoi(argv[3]); 
+        TOPK = atoi(argv[3]);
     }
 
     if (argc >= 5 && argv[4][0] == 'D'){
         DIR = 1;
     }
-    
+
     time_t start,end;
     start = clock();
-    
+
     fscanf(fp, "%d %d", &n, &m);
     for (int i = 0; i < m; i++){
         fscanf(fp, "%d %d", &x, &y);
-        tot++; 
+        tot++;
         E[tot].v = y;
         E[tot].next = firstedge[x];
         firstedge[x] = tot;
@@ -117,7 +117,7 @@ int main(int argc, char* argv[])
         seed[i] = x;
     }
     fclose(fs);
-    
+
     for (int i = 1; i <= T; i++){
         GenerateThreshold();
         totnum += Simulate(TOPK);
@@ -126,8 +126,7 @@ int main(int argc, char* argv[])
     printf("Expected Influence: %d\n", (int)totnum/T);
 
     end = clock();
-    printf("%lfs\n", double(end-start)/CLOCKS_PER_SEC); 
+    printf("%lfs\n", double(end-start)/CLOCKS_PER_SEC);
 
     return 0;
 }
-
