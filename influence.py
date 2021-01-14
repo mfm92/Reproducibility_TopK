@@ -24,7 +24,8 @@ output_path = f"./{algorithm}_output_{os.path.splitext(base)[0]}_{threshold_type
 if not os.path.exists(output_path):
     os.mkdir(output_path)
 
-executable = f"./Calc_Inf_LT_{threshold_type}"
+# executable = f"./Calc_Inf_LT_{threshold_type}"
+executable = "./Calc_Inf_IC"
 if not os.path.isfile(executable):
     command = f"g++ {executable}.cpp -o {executable}"
     os.system(command)
@@ -48,5 +49,5 @@ df = pd.read_csv(f"{output_path}/Influence.csv")
 
 print("Creating DataFrame...", end="")
 df["Influence"] = influence_data
-df.to_csv(output_path + "/Influence.csv", index=False)
+df.to_csv(output_path + "/Influence_IC.csv", index=False)
 print(" Done")
