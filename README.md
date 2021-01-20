@@ -34,6 +34,10 @@ The results are then written to folder `Results`. In each subfolder labelled `<a
 
 # Evaluate and visualize results
 
-This can be done with the notebook named `stats_test.ipynb`.
+This can be done with the notebook named `stats_test.ipynb`. Alternatively one can run:
+
+`python stats_test.py`
+
+... and resulting plots will be published to `Results/plots`.
 
 Slides: https://de.overleaf.com/3845151781fmpmzjnmdhkg
