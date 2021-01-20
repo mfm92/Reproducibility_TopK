@@ -8,7 +8,7 @@ Git-repo of the authors: https://github.com/yuzhimanhua/Influence-Maximization
 The script to produce the nodes, which are the best as influencer:
 `python experiment.py #1 #2 -t #3 #4 -fs #5 -it #6`
 
-<ins>Meaning of the arguments</ins>:
+<ins>Meaning of the arguments</ins>:<br>
 #1 algorithm to calculate the most influential nodes (`Random/Greedy++/Degree/PageRank`), <br>
 #2 input graph (find all in folder Data), <br>
 #3 threshold (`linear/concave/convex/majority`), <br>
@@ -20,7 +20,7 @@ A documentation of the meaning of the thresholds is to be found in the paper (se
 
 The parameters #5 and #6 (incl. `fs` and `it` flags) are optimal. If not set, the chosen setting runs for every seed set size between 1 and 20. If the parameters are defined, the chosen setting runs only for the defined seed set size (`fs` flag), but more times (number of iterations = `it` flag)
 
-_Examples_:
+_Examples_:<br>
 `python experiment.py Degree Data/Epinions.txt -t linear D`<br>
 `python experiment.py Random Data/NetHept.txt -t linear U -fs 5 -it 50`
 
