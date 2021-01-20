@@ -1,5 +1,4 @@
 .DS_Store
-Calc_Inf
 Calc_Inf_LT
 Greedy++_linear
 Calc_Inf_LT_linear
@@ -9,5 +8,4 @@ Greedy++_convex
 Calc_Inf_LT_convex
 Greedy++_majority
 Calc_Inf_LT_majority
-Greedy++
 .ipynb_checkpoints
