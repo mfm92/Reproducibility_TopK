@@ -5,6 +5,8 @@ Yu Zhang and Yan Zhang. 2017. Top-K Influential Nodes in Social Networks: A Game
 
 Git-repo of the authors: https://github.com/yuzhimanhua/Influence-Maximization
 
+# Run settings
+
 The script to produce the nodes, which are the best as influencer:
 `python experiment.py #1 #2 -t #3 #4 -fs #5 -it #6`
 
@@ -26,6 +28,12 @@ _Examples_:<br>
 
 Use `python experiment.py -h` to retrieve a description of the parameters in the command line.
 
+# Retrieve results
+
 The results are then written to folder `Results`. In each subfolder labelled `<algorithm>_output_<dataset>_<threshold>` under `Results` there is a file named `Influence.csv` which documents the influence score and runtimes (for finding the most promising node set and for calculating the influence) for each given size of seed set. The files `out<n>.txt` document the IDs of the `n` nodes computed to be the most influential under the given setting.
+
+# Evaluate and visualize results
+
+This can be done with the notebook named `stats_test.ipynb`.
 
 Slides: https://de.overleaf.com/3845151781fmpmzjnmdhkg
