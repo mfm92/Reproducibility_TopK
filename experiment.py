@@ -33,7 +33,7 @@ for i in range(iterations):
     if fixed_seed_setsize == None:
         output_path = f"./Results/{algorithm}_output_{os.path.splitext(base)[0]}_{threshold_type}"
     else:
-        output_path = f"./Results/{algorithm}_output_{os.path.splitext(base)[0]}_{threshold_type}_iter"
+        output_path = f"./Results/iterations/{algorithm}_output_{os.path.splitext(base)[0]}_{threshold_type}"
 
     if not os.path.exists(output_path):
         os.mkdir(output_path)
