@@ -31,22 +31,22 @@ df = pd.DataFrame()
 
 for i in range(iterations):
     if fixed_seed_setsize == None:
-        output_path = f"./{algorithm}_output_{os.path.splitext(base)[0]}_{threshold_type}"
+        output_path = f"./Results/{algorithm}_output_{os.path.splitext(base)[0]}_{threshold_type}"
     else:
-        output_path = f"./{algorithm}_output_{os.path.splitext(base)[0]}_{threshold_type}_iter"
+        output_path = f"./Results/{algorithm}_output_{os.path.splitext(base)[0]}_{threshold_type}_iter"
 
     if not os.path.exists(output_path):
         os.mkdir(output_path)
 
     if algorithm == "Greedy++":
-        executable = f"./Greedy++_{threshold_type}"
+        executable = f"./Greedy++/Greedy++_{threshold_type}"
         if not os.path.isfile(executable):
             command = f"g++ {executable}.cpp -o {executable}"
             os.system(command)
             st = os.stat(executable)
             os.chmod(f'{executable}', st.st_mode | stat.S_IEXEC)
     else:
-        executable = f"python3 pagerank.py"
+        executable = f"python3 find_init_nodes.py"
 
     total_start = perf_counter()
     nodeset_efficiency = dict()
@@ -70,7 +70,7 @@ for i in range(iterations):
     seconds = perf_counter() - total_start
     print("Experiment ran successfully!\nCalculating influence data from output")
     print(f"Total time: {int(seconds // 60)} minutes {seconds % 60:.2f} seconds", end="\n\n")
-    executable = f"./Calc_Inf_LT_{threshold_type}"
+    executable = f"./Calc_Inf/Calc_Inf_LT_{threshold_type}"
     if not os.path.isfile(executable):
         command = f"g++ {executable}.cpp -o {executable}"
         os.system(command)
