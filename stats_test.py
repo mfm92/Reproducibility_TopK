@@ -78,10 +78,10 @@ df_random_netphy = pd.read_csv("Results/Random_output_NetPhy_linear/Influence.cs
 # In[22]:
 
 
-#df_greedy_epinions = pd.read_csv("Results/Greedy++_output_Epinions_linear/Influence.csv")
-#df_pagerank_epinions = pd.read_csv("Results/PageRank_output_Epinions_linear/Influence.csv")
-#df_degree_epinions = pd.read_csv("Results/Degree_output_Epinions_linear/Influence.csv")
-#df_random_epinions = pd.read_csv("Results/Random_output_Epinions_linear/Influence.csv")
+df_greedy_epinions = pd.read_csv("Results/Greedy++_output_Epinions_linear/Influence.csv")
+df_pagerank_epinions = pd.read_csv("Results/PageRank_output_Epinions_linear/Influence.csv")
+df_degree_epinions = pd.read_csv("Results/Degree_output_Epinions_linear/Influence.csv")
+df_random_epinions = pd.read_csv("Results/Random_output_Epinions_linear/Influence.csv")
 
 
 # ### Epinions IC
@@ -300,8 +300,8 @@ plot_inf("NetPhy", df_greedy_netphy, df_pagerank_netphy, df_degree_netphy, df_ra
 # In[132]:
 
 
-#plot_inf("Epinions", df_greedy_epinions, 
-#         df_pagerank_epinions, df_degree_epinions, df_random_epinions, "Linear")
+plot_inf("Epinions", df_greedy_epinions, 
+         df_pagerank_epinions, df_degree_epinions, df_random_epinions, "Linear")
 
 
 # ## Comparison with Published Results
@@ -407,8 +407,8 @@ plot_reference_comparison(df_greedy_netphy, df_pagerank_netphy, df_degree_netphy
 # In[178]:
 
 
-#plot_reference_comparison(df_greedy_epinions, df_pagerank_epinions, df_degree_epinions, df_random_epinions,
-#                       dataset="Epinions", threshold="linear")
+plot_reference_comparison(df_greedy_epinions, df_pagerank_epinions, df_degree_epinions, df_random_epinions,
+                       dataset="Epinions", threshold="linear")
 
 
 # In[180]:
@@ -472,7 +472,7 @@ t_test("NetPhy", "linear")
 # In[22]:
 
 
-#t_test("Epinions", "linear")
+t_test("Epinions", "linear")
 
 
 # In[ ]:
