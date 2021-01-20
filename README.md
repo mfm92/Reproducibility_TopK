@@ -26,4 +26,6 @@ _Examples_:<br>
 
 Use `python experiment.py -h` to retrieve a description of the parameters in the command line.
 
+The results are then written to folder `Results`. In each subfolder labelled `<algorithm>_output_<dataset>_<threshold>` under `Results` there is a file named `Influence.csv` which documents the influence score and runtimes (for finding the most promising node set and for calculating the influence) for each given size of seed set. The files `out<n>.txt` document the IDs of the `n` nodes computed to be the most influential under the given setting.
+
 Slides: https://de.overleaf.com/3845151781fmpmzjnmdhkg
