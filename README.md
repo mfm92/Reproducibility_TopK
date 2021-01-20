@@ -5,9 +5,9 @@ Yu Zhang and Yan Zhang. 2017. Top-K Influential Nodes in Social Networks: A Game
 Git-repo of the authors: https://github.com/yuzhimanhua/Influence-Maximization
 
 The script to produce the nodes, which are the best as influencer:
-python experiment.py #1 #2 -t #3 #4 -fs #5 -it #6
+`python experiment.py #1 #2 -t #3 #4 -fs #5 -it #6`
 
-Meaning of the arguments:
++Meaning of the arguments+:
 #1 = algorithm to calculate the most influential nodes (Random/Greedy++/Degree/PageRank), 
 #2 = input graph (find all in folder Data), 
 #3 = threshold (linear/concave/convex/majority), 
@@ -20,7 +20,9 @@ A documentation of the meaning of the thresholds is to be found in the paper (se
 The parameters #5 and #6 (incl. fs and it flags) are optimal. If not set, the chosen setting runs for every seed set size between 1 and 20. If the parameters are defined, the chosen setting runs only for the defined seed set size (fs flag), but more times (number of iterations = it flag)
 
 Examples:
-python experiment.py Degree Data/Epinions.txt -t linear D 
-python experiment.py Random Data/NetHept.txt -t linear U -fs 5 -it 50
+`python experiment.py Degree Data/Epinions.txt -t linear D`
+`python experiment.py Random Data/NetHept.txt -t linear U -fs 5 -it 50`
+
+Use `python experiment.py -h` to retrieve a description of the parameters in the command line.
 
 Slides: https://de.overleaf.com/3845151781fmpmzjnmdhkg
