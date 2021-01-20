@@ -1,23 +1,26 @@
-In diesem Repository liegt der Code um die Ergebnisse aus folgendem Paper zu reproduzieren:
+In this repository you can find the code to reproduce the results from the following paper:
 
 Yu Zhang and Yan Zhang. 2017. Top-K Influential Nodes in Social Networks: A Game Perspective. In Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR '17). Association for Computing Machinery, New York, NY, USA, 1029–1032. DOI: https://doi.org/10.1145/3077136.3080709
 
-Link zum Git-Repo der Autoren: https://github.com/yuzhimanhua/Influence-Maximization
+Git-repo of the authors: https://github.com/yuzhimanhua/Influence-Maximization
 
+The script to produce the nodes, which are the best as influencer:
+python experiment.py #1 #2 -t #3 #4 -fs #5 -it #6
 
-Mit diesem Skript werden die Knoten bestimmt die sich als beste Influencer eignen:
+Meaning of the arguments:
+#1 = algorithm to calculate the most influential nodes (Random/Greedy++/Degree/PageRank), 
+#2 = input graph (find all in folder Data), 
+#3 = threshold (linear/concave/convex/majority), 
+#4 = D for directed graph or X for undirected graph, 
+#5 = number of the most influential nodes (seed set size),
+#6 = number of interations
 
-`python experiment.py #1 #2 -t #3 #4 -fs #5 -it #6`
+A documentation of the meaning of the thresholds is to be found in the paper (section 4). There you can also find which graphes are directed or undirected. 
 
-Bedeutung der Argumente: #1 = Algorithmus zur Berechnung der einflussreichsten Knoten (_Random/Greedy++/Degree/PageRank_), #2 = Inputgraph (liegen alle im Ordner `Data`), #3 = Threshold (_linear/concave/convex/majority_), #4 = `D` (für gerichteter Graph) oder `X` für ungerichteter Graph, #5 = Größe der Menge der einflussreichsten Knoten (`seed set size`), #6 = Anzahl der Iterationen.
+The parameters #5 and #6 (incl. fs and it flags) are optimal. If not set, the chosen setting runs for every seed set size between 1 and 20. If the parameters are defined, the chosen setting runs only for the defined seed set size (fs flag), but more times (number of iterations = it flag)
 
-Im Paper ist eine Dokumentation was die Thresholds genau bedeuten (Sektion 4). Ebenso steht drinnen welche Graphen gerichtet sind und welche nicht (Sektion 4).
-
-Die Parameter #5 und #6 (inklusive `fs` und `it` flags) sind optional. Wenn diese Parameter nicht gesetzt sind wird das gewählte Setting im CLI für alle Seed Set sizes zwischen 1 und 20 jeweils einmal ausgeführt. Wenn diese Parameter definiert sind wird das gewählte Setting nur für die benutzerdefinierte Seed Set Size (`fs` flag) durchgeführt, dafür aber mehrmals (Anzahl der Iterationen = `it` flag).
-
-Beispielaufrufe:
-
-`python experiment.py Degree Data/Epinions.txt -t linear D`
-`python experiment.py Random Data/NetHept.txt -t linear U -fs 5 -it 50`
+Examples:
+python experiment.py Degree Data/Epinions.txt -t linear D 
+python experiment.py Random Data/NetHept.txt -t linear U -fs 5 -it 50
 
 Slides: https://de.overleaf.com/3845151781fmpmzjnmdhkg
