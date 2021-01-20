@@ -221,33 +221,29 @@ stats.ttest_ind(infl_degree, infl_pr)
 
 
 def plot_inf(data, df_greedy, df_pagerank, df_degree, df_random, threshold):
-    plt.title(f"{threshold} threshold, data: {data}", fontsize=28)
+    plt.clf()
+    plt.title(f"{threshold} threshold, data: {data}")
     plt.plot(df_greedy.Size, df_greedy.Influence, marker="o", color="red", )
     plt.plot(df_pagerank.Influence, marker="x", color="green")
     plt.plot(df_degree.Influence, marker="^", color="purple")
     plt.plot(df_random.Influence, marker="s", color="lightblue")
 
-    plt.legend(['Greedy++', 'Page Rank', 'Degree', 'Random'], fontsize=24)
+    plt.legend(['Greedy++', 'Page Rank', 'Degree', 'Random'])
     plt.xticks(np.arange(0, 21))
-    plt.xlabel("Seed set size", fontsize=18)
-    plt.ylabel("Influence spread", fontsize=18)
-    plt.yticks(fontsize=16)
+    plt.xlabel("Seed set size")
+    plt.ylabel("Influence spread")
 
-    fig = plt.gcf()
-    fig.set_size_inches(18.5, 10.5)
 
-    plt.savefig(f"./Results/plots/influence_vis_{data}_{threshold}.png", dpi=250)
-    
-    plt.title(f"Run times, data: {data}", fontsize=28)
+    plt.savefig(f"./Results/plots/influence_vis_{data}_{threshold}.png")
+
+    plt.clf()
+    plt.title(f"Run times, data: {data}")
     plt.bar(range(4), [(sum(df_degree.InfRuntime)/len(df_degree.InfRuntime)), 
                        (sum(df_random.InfRuntime)/len(df_random.InfRuntime)),
                        (sum(df_pagerank.InfRuntime)/len(df_pagerank.InfRuntime)),
                        (sum(df_greedy.InfRuntime)/len(df_greedy.InfRuntime))])
-    plt.xticks(range(4), ['Degree', 'Random', 'PageRank', 'Greedy++'], fontsize=16)
-    plt.yticks(fontsize=16)
-    fig = plt.gcf()
-    fig.set_size_inches(18.5, 10.5)
-    plt.savefig(f"./Results/plots/runtime_vis_{data}_{threshold}.png", dpi=250)
+    plt.xticks(range(4), ['Degree', 'Random', 'PageRank', 'Greedy++'])
+    plt.savefig(f"./Results/plots/runtime_vis_{data}_{threshold}.png")
     
 plot_inf("NetHept", 
          df_greedy_nethept_linear, 
