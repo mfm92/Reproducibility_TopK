@@ -5,9 +5,16 @@ Yu Zhang and Yan Zhang. 2017. Top-K Influential Nodes in Social Networks: A Game
 
 Git-repo of the authors: https://github.com/yuzhimanhua/Influence-Maximization
 
-# Run settings
+# Requirements
+
+Requirements regarding Python modules are listed in `requirements.txt`.
+
+Building this project also requires `gcc` compiler (version 12.0.0 supported, but possibly earlier versions are fine too)
 
 Implemented for MacOS (Catalina 10.15.7, processor 3.3GHz Dual-Core Intel Core i5, RAM: 16 GB 2133 MHz LPDDR3 <br>
+
+# Run settings
+
 Script to produce the nodes, which are the best as influencer:
 `python experiment.py #1 #2 -t #3 #4 -fs #5 -it #6`
 
