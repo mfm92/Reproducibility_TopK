@@ -7,6 +7,7 @@ Git-repo of the authors: https://github.com/yuzhimanhua/Influence-Maximization
 
 # Run settings
 
+Implemented for MacOS (Catalina 10.15.7, processor 3.3GHz Dual-Core Intel Core i5, RAM: 16 GB 2133 MHz LPDDR3 <br>
 Script to produce the nodes, which are the best as influencer:
 `python experiment.py #1 #2 -t #3 #4 -fs #5 -it #6`
 
