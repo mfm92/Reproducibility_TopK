@@ -7,7 +7,7 @@ Git-repo of the authors: https://github.com/yuzhimanhua/Influence-Maximization
 
 # Run settings
 
-The script to produce the nodes, which are the best as influencer:
+Script to produce the nodes, which are the best as influencer:
 `python experiment.py #1 #2 -t #3 #4 -fs #5 -it #6`
 
 <ins>Meaning of the arguments</ins>:<br>
