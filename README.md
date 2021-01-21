@@ -48,4 +48,6 @@ This can be done with the notebook named `stats_test.ipynb`. Alternatively one c
 
 ... and resulting plots will be published to `Results/plots`.
 
-Slides: https://de.overleaf.com/3845151781fmpmzjnmdhkg
+# Reproducibility paper
+
+See https://zenodo.org/record/4456039
